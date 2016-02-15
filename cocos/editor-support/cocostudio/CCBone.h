@@ -1,4 +1,4 @@
-/****************************************************************************
+﻿/****************************************************************************
 Copyright (c) 2013-2014 Chukong Technologies Inc.
 
 http://www.cocos2d-x.org
@@ -101,13 +101,13 @@ public:
 
     /**
      * Add a child to this bone, and it will let this child call setParent(Bone *parent) function to set self to it's parent
-     * @param 	child  the child you want to add
+     * @param     child  the child you want to add
      */
     void addChildBone(Bone *child);
 
     /**
      * Set parent bone.
-     * If parent is NUll, then also remove this bone from armature.
+     * If parent is null, then also remove this bone from armature.
      * It will not set the Armature, if you want to add the bone to a Armature, you should use Armature::addBone(Bone *bone, const char* parentName).
      *
      * @param parent  the parent bone.
@@ -130,7 +130,7 @@ public:
 
     /**
      * Removes a child Bone
-     * @param 	bone   the bone you want to remove
+     * @param     bone   the bone you want to remove
      */
     void removeChildBone(Bone *bone, bool recursion);
 
@@ -227,20 +227,20 @@ protected:
     DisplayManager *_displayManager;
 
     /*
-     *	When Armature play an animation, if there is not a MovementBoneData of this bone in this MovementData, this bone will be hidden.
-     *	Set IgnoreMovementBoneData to true, then this bone will also be shown.
+     *    When Armature play an animation, if there is not a MovementBoneData of this bone in this MovementData, this bone will be hidden.
+     *    Set IgnoreMovementBoneData to true, then this bone will also be shown.
      */
     bool _ignoreMovementBoneData;
 
     cocos2d::BlendFunc _blendFunc;
     bool _blendDirty;
 
-    Tween *_tween;				//! Calculate tween effect
+    Tween *_tween;                //! Calculate tween effect
 
     //! Used for making tween effect in every frame
     FrameData *_tweenData;
 
-    Bone *_parentBone;	               //! A weak reference to its parent
+    Bone *_parentBone;                   //! A weak reference to its parent
     bool _boneTransformDirty;          //! Whether or not transform dirty
 
     //! self Transform, use this to change display's state

@@ -41,12 +41,17 @@ static void untrackRef(Ref* ref);
 
 Ref::Ref()
 : _referenceCount(1) // when the Ref is created, the reference count of it is 1
+#if CC_ENABLE_SCRIPT_BINDING
+, _luaID (0)
+, _scriptObject(nullptr)
+, _rooted(false)
+, _scriptOwned(false)
+,_referenceCountAtRootTime(0)
+#endif
 {
 #if CC_ENABLE_SCRIPT_BINDING
     static unsigned int uObjectCount = 0;
-    _luaID = 0;
     _ID = ++uObjectCount;
-    _scriptObject = nullptr;
 #endif
     
 #if CC_REF_LEAK_DETECTION
@@ -56,7 +61,7 @@ Ref::Ref()
 
 Ref::~Ref()
 {
-#if CC_ENABLE_SCRIPT_BINDING
+#if CC_ENABLE_SCRIPT_BINDING && !CC_ENABLE_GC_FOR_NATIVE_OBJECTS
     // if the object is referenced by Lua engine, remove it
     if (_luaID)
     {

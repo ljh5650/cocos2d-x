@@ -1,4 +1,4 @@
-/****************************************************************************
+﻿/****************************************************************************
 Copyright (c) 2013-2014 Chukong Technologies Inc.
 
 http://www.cocos2d-x.org
@@ -134,13 +134,13 @@ protected:
 
     Bone *_bone;                    //! A weak reference to the Bone
 
-    TweenType _frameTweenEasing;  //! Dedermine which tween effect current frame use
+    TweenType _frameTweenEasing;  //! Determine which tween effect current frame use
 
     int _betweenDuration;           //! Current key frame will last _betweenDuration frames
     int _totalDuration;
 
 
-    int _fromIndex;				    //! The current frame index in FrameList of MovementBoneData, it's different from m_iFrameIndex
+    int _fromIndex;                    //! The current frame index in FrameList of MovementBoneData, it's different from m_iFrameIndex
     int _toIndex;                   //! The next frame index in FrameList of MovementBoneData, it's different from m_iFrameIndex
 
     ArmatureAnimation *_animation;
